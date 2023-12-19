@@ -8,12 +8,10 @@ from expects import expect, equal
 
 vncserver_cmd = 'vncserver :1'
 running_xvnc = False
-debug_output = False
 config_dir = "spec/tmp"
 config_filename = os.path.join(config_dir, "config.yaml")
 
-if os.getenv('KASMVNC_SPEC_DEBUG_OUTPUT'):
-    debug_output = True
+debug_output = bool(os.getenv('KASMVNC_SPEC_DEBUG_OUTPUT'))
 
 
 def write_config(config_text):

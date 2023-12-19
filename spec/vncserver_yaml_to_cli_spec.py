@@ -21,10 +21,7 @@ def run_vncserver():
 def pick_cli_option(cli_option, xvnc_cmd):
     cli_option_regex = re.compile(f'\'?-{cli_option}\'?(?:\s+[^-][^\s]*|$)')
     results = cli_option_regex.findall(xvnc_cmd)
-    if len(results) == 0:
-        return None
-
-    return ' '.join(results)
+    return None if len(results) == 0 else ' '.join(results)
 
 
 def prepare_env():
